@@ -1,7 +1,7 @@
 #class_quadratics noah mcgehee
 import math
 class QuadraticEquation:
-	def __int__(self, a, b, c):
+	def __init__(self, a, b, c):
 		self.a = a
 		self.b = b
 		self.c = c
@@ -20,9 +20,9 @@ class QuadraticEquation:
 			istr = "imaginary"
 			return istr
 		else:
-			return (-self.b + math.sqrt(self.discriminant())) / (2 * self.a)
+			return (-self.b - math.sqrt(self.discriminant())) / (2 * self.a)
 			
-if __name__=="__main__":
+if __name__ == "__main__":
 	p1 = QuadraticEquation(1,0,9)
 	x1 = p1.x1()
 	x2 = p1.x2()
