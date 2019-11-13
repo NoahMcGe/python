@@ -11,6 +11,8 @@
 import turtle
 import tkinter as tk
 from random import randint
+import random
+import os
 import colorsys
 from turtle import *
 import need
@@ -24,15 +26,16 @@ white = "#ffffff"
 w = turtle.Screen()
 w.setup(1000, 700)
 w.clear()
-w.bgpic("img/42.png")
+w.bgpic("../img/42.png")
 q = turtle.Turtle()
 r = turtle.Turtle()
 t = turtle.Turtle()
 l = turtle.Turtle()
 z = turtle.Turtle()
-image = "img/x.gif"
+image = "../img/x.gif"
 move_speed = 10
 turn_speed = 10
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 '''
@@ -206,12 +209,23 @@ def start():
 		color = colorsys.hsv_to_rgb(i/700, 1.0, 1.0)
 		q.pencolor(color)
 		q.backward(i*1.7)
-		q.right(126)
+		q.right(190)
 		q.speed(0)
-		if i >300:
-			q.width(14)
-		else:
-			q.width(9)
+		if i < 30:
+			q.width(3)
+		if 30 < i < 100:
+			q.width(5)
+		if 100 < i < 200:
+			q.width(7)
+		if 200 < i < 300:
+			q.width(10)
+		if 300 < i < 400:
+			q.width(13)
+		if 400 < i < 500:
+			q.width(15)
+		if 500 < i < 600:
+			q.width(18)
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 '''
@@ -340,6 +354,25 @@ def st():
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 '''
+    ___         __ 
+   /   |  _____/ /_
+  / /| | / ___/ __/
+ / ___ |/ /  / /_  
+/_/  |_/_/   \__/  
+                   
+'''
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+def art():
+	i = random.randrange(13) + 1
+	website="http://10.183.1.19/git/noah/python/2019-2020/turtle/art/"+ str(i) + ".txt"
+	#website="https://raw.githubusercontent.com/DanCRichards/ASCII-Art-Splash-Screen/master/art/"+ str(i) + ".txt"
+	os.system("curl " +  website)
+
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+'''
   __  __                 __  __              
  |  \/  |___ _ __  ___  |  \/  |___ _ _ _  _ 
  | |\/| / -_) '  \/ -_) | |\/| / -_) ' \ || |
@@ -361,8 +394,10 @@ g = tk.Button(root, text="X Button",font=('courier', '20') ,command=go)
 h = tk.Button(root, text="Add logo",font=('courier', '20') ,command=logo)
 j = tk.Button(root, text="Loooop",font=('courier', '20') ,command=start)
 i = tk.Button(root, text="Send Turtles boiys Home",font=('courier', '20') ,command=lolololol)
+k = tk.Button(root, text="Art",font=('courier', '20') ,command=art)
 #d = tk.Button(root, text="CLEAR + loltyler1.com discountcode:ALPHA",font=('courier', '20') ,command=end)
 #y = tk.Button(root, text="CLEAR + Cool Boy",font=('courier', '20') ,command=loop2)
+#e1 = tk.Entry(root, text="First Name")
 t1 = tk.Label(root, text="-Noah, Mason, Silas",font=('courier', '10'))
 b.pack()
 e.pack()
@@ -374,10 +409,12 @@ d.pack()
 g.pack()
 i.pack()
 j.pack()
+k.pack()
 #z.pack()
 #y.pack()
 #i.pack()
 t1.pack()
+#e1.pack()
 #t2.pack()
 #t3.pack()
 root.mainloop()
