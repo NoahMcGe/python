@@ -26,13 +26,13 @@ white = "#ffffff"
 w = turtle.Screen()
 w.setup(1000, 700)
 w.clear()
-w.bgpic("../img/42.png")
+w.bgpic("img/42.png")
 q = turtle.Turtle()
 r = turtle.Turtle()
 t = turtle.Turtle()
 l = turtle.Turtle()
 z = turtle.Turtle()
-image = "../img/x.gif"
+image = "img/x.gif"
 move_speed = 10
 turn_speed = 10
 
@@ -364,9 +364,9 @@ def st():
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 def art():
-	i = random.randrange(13) + 1
-	website="http://10.183.1.19/git/noah/python/2019-2020/turtle/art/"+ str(i) + ".txt"
-	#website="https://raw.githubusercontent.com/DanCRichards/ASCII-Art-Splash-Screen/master/art/"+ str(i) + ".txt"
+	i = random.randrange(15) + 1
+	website="https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/art/"+ str(i) + ".txt"
+	#website="https://raw.githubusercontent.com/DanCRichards/ASCII-Art-Splash-Screen/master/art/"+ str(i) + ".txt" ty DanCRichards!!!!
 	os.system("curl " +  website)
 
 
