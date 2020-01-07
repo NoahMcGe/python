@@ -15,7 +15,7 @@ code - trace the code and predict what it outputs,
 then run it in the sandbox to see if you got it right.
 '''
 import random
-iterations = 1000 #1000
+iterations = 1000 #1000 noah
 count = 0
 count_mn = 0
 count_mx = 0
