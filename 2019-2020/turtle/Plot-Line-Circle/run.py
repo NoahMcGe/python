@@ -18,8 +18,6 @@ import turtle
 import math
 wdth = 800; hgth = 800; bgstring = "#ffffff"
 red = "#cc0000"; green = "#00cc00"; blue = "#0000cc"
-os.system("mkdir img")
-os.system("cd img/;wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/img/42.png")
 
 def grid(t):
 	x = -200; y = -200
