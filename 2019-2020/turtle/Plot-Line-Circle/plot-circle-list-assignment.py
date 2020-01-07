@@ -66,21 +66,22 @@ def plotCircles(t):
 	c =  [-200+(x*38.85), -200+(x*42), -200+(x*39.78), -200+(x*39.1)] #y?
 	dsorted = sorted (d, key = float)
 	csorted = sorted(c , key = float)
+	t.width(4)
 	t.goto(-200,-200)
 	t.pendown()
 	t.color(red)
 	t.goto(dsorted[0]+50,csorted[0]+50)
 	t.color(green)
-	t.dot(5, green)
+	t.dot(10, green)
 	t.goto(dsorted[1]+100,csorted[1]+100)
 	t.color(blue)
-	t.dot(5, blue)
+	t.dot(10, blue)
 	t.goto(dsorted[2]+150,csorted[2]+150)
 	t.color(pink)
-	t.dot(5, pink)
+	t.dot(10, pink)
 	t.color(purple)
 	t.goto(dsorted[3]+200,csorted[3]+200)
-	t.dot(5, purple)
+	t.dot(10, purple)
 	
 def main():
 	try:
