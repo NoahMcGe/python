@@ -48,6 +48,12 @@ def grid(t):
 	t.pendown()
 	t.goto(-200,270)
 	t.write('Noah McGehee', font=style, align='left')
+	t.penup()
+	t.goto(150,240)
+	t.pendown()
+	t.goto(-200,240)
+	t.color(red)
+	t.write('Red Line is not apart of the stats!', font=style, align='left')
 	t.hideturtle()
 	t.penup()
 
