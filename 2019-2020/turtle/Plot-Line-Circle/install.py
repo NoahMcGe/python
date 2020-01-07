@@ -21,7 +21,7 @@ def run():
 		run()
 
 def run2():
-	a = input ("Would you like to run the group python project? (Y/N): ")
+	a = input ("Would you like to run Plot-Circle-Line? (Y/N): ")
 	if (a == "Y" or a == "y"):
 		os.system("python3 run.py")
 	elif (a == "N" or a == "n"):
