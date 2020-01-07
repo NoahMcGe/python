@@ -12,7 +12,7 @@ def run():
 	a = input ("Would you like to download the 42.png? (Y/N): ")
 	if (a == "Y" or a == "y"):
 		os.system("mkdir img")
-		os.system("cd img/;wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/img/42.png")
+		os.system("cd img/;wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/Plot-Line-Circle/img/42.png")
 		os.system("wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/Plot-Line-Circle/run.py")
 		os.system("date")
 	elif (a == "N" or a == "n"):
