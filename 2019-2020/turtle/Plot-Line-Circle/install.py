@@ -16,6 +16,7 @@ def run():
 		os.system("wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/Plot-Line-Circle/run.py")
 		os.system("date")
 	elif (a == "N" or a == "n"):
+		run3()
 		exit()
 	else:
 		run()
@@ -28,7 +29,19 @@ def run2():
 		exit()
 	else:
 		run()
+		
+def run3():
+	a = input ("Would you like to display the credits? (Y/N): ")
+	if (a == "Y" or a == "y"):
+		print("Maker and Baker - Noah")
+		print("Chef BOI-R-dee - Preston")
+	elif (a == "N" or a == "n"):
+		print("did not display credits.")
+	else:
+		run3()
+
 run()
 art()
+run3()
 run2()
 
