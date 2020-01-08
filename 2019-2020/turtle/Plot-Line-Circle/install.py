@@ -40,7 +40,18 @@ def run3():
 	else:
 		run3()
 
+def run4():
+	a = input ("Would you like to download instructions? (Y/N): ")
+	if (a == "Y" or a == "y"):
+		os.systen("wget wget https://raw.githubusercontent.com/NoahMcGe/python/master/2019-2020/turtle/Plot-Line-Circle/instructions.txt")
+	elif (a == "N" or a == "n"):
+		print("did not download instructions.")
+	else:
+		run4()
+
+
 run()
+run4()
 art()
 run3()
 run2()
