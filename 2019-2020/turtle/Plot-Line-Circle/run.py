@@ -52,6 +52,16 @@ def grid(t):
 	t.goto(-200,240)
 	t.color(red)
 	t.write('Red Line is not apart of the stats!', font=style, align='left')
+	t.color(blue)
+	t.penup()
+	t.goto(-230,-150)
+	t.pendown()
+	t.write('C\nI\nR\nC\nU\nM\nF\nE\nR\nE\nN\nC\nE', font=("Comic Sans", 12, 'normal', 'bold',))
+	t.penup()
+	t.goto(-50,-230)
+	t.pendown()
+	t.write('Diameter', font=("Comic Sans", 18, 'normal', 'bold',), align='left')
+	
 	t.hideturtle()
 	t.penup()
 
