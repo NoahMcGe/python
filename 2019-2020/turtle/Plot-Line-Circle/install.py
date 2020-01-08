@@ -9,6 +9,7 @@ def art():
 	os.system("curl " +  website)
 
 def run():
+	print("All files will download where is the install file is located so please put it into a separate directory with no other files. ^-^")
 	a = input ("Would you like to download the 42.png? (Y/N): ")
 	if (a == "Y" or a == "y"):
 		os.system("mkdir img")
