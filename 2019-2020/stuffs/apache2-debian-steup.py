@@ -17,11 +17,11 @@ def apache2set():
 		bash("sudo apt install apache2")
 		bash("cd /home/"+username+"/;mkdir http/;cd http/;mkdir logs;cd ..;chmod 755 http/ -R")#makes http and logs folder and changes perms
 		bash("wget https://raw.githubusercontent.com/NoahMcGe/documents/master/apache/localhost.conf;chmod 755 localhost.conf;")#downloads debian apache2 localhost.conf file and changes perms
-		bash("sed -i 's/ifb/"+username+"/g' localhost.conf;cd /etc/apache2/sites-available/;sudo rm /etc/apache2/sites-available/*.conf;cd ../sites-enabled/;sudo rm /etc/apache2/sites-enabled/*.conf")#changing the username to match the end user, removing files
+		#bash("sed -i 's/ifb/"+username+"/g' localhost.conf;cd /etc/apache2/sites-available/;sudo rm /etc/apache2/sites-available/*.conf;cd ../sites-enabled/;sudo rm /etc/apache2/sites-enabled/*.conf")#changing the username to match the end user, removing files
 		#sed -i 's/original/new/g' file.txt #example of sed command in case changes need to be made
-		bash("sudo mv localhost.conf /etc/apache2/sites-available/;cd /etc/apache2/sites-available/;sudo a2ensite localhost.conf;")# moving the localhost file
-		bash("sudo systemctl reload apache2")
-		php()
+		#bash("sudo mv localhost.conf /etc/apache2/sites-available/;cd /etc/apache2/sites-available/;sudo a2ensite localhost.conf;")# moving the localhost file
+		#bash("sudo systemctl reload apache2")
+		#php()
 	elif (a == "N" or a == "n"):
 		print("Did not try to setup apache")
 		exit()
