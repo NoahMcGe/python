@@ -1,6 +1,6 @@
 # Noah McGehee 
 # https://github.com/NoahMcGe
-# 2/21/2020
+# 2/22/2020
 
 
 #requires pySerial to be installed 
@@ -12,9 +12,11 @@
 
 # READ ME
 # to use with ultra sonic thingy
-# Uncomment and edit line 118
-# Comment line 94
-# Uncomment line 95
+# Uncomment and edit line 149
+# Comment line 126
+# Uncomment line 127
+# Uncomment line 123
+# Uncomment line 122
 # Uncomment line 36
 # Uncomment line 37
 # Uncomment line 38
@@ -38,8 +40,42 @@ bash=os.system
 #ser = serial.Serial(serial_port, baud_rate)
 line=""
 
-
-
+def year():
+	global dt
+	dt = datetime.datetime.now()
+	y = dt.year
+	timestring = str(y)
+	return timestring
+def month():
+	global dt
+	dt = datetime.datetime.now()
+	m = dt.month
+	timestring = str(m)
+	return timestring
+def day():
+	global dt
+	dt = datetime.datetime.now()
+	m = dt.day
+	timestring = str(m)
+	return timestring
+def hour():
+	global dt
+	dt = datetime.datetime.now()
+	m = dt.hour
+	timestring = str(m)
+	return timestring
+def stmin():
+	global dt
+	dt = datetime.datetime.now()
+	m = dt.minute
+	timestring = str(m)
+	return timestring
+def secdt():
+	dt = datetime.datetime.now()
+	y = dt.second
+	timestring = str(y)
+	return timestring
+'''
 def getDateStringfile():
 	global dt
 	dt = datetime.datetime.now()
@@ -58,7 +94,7 @@ def getDateStringfolder():
 	y = dt.year
 	timestring = str(dt.month) +'-'+ str(dt.day)+'-' + str(y)
 	return timestring
-	
+	'''
 def getDateStringfolder2():
 	dt = datetime.datetime.now()
 	y = dt.year
@@ -71,11 +107,6 @@ def getDateStringfolder2():
 	timestring = str(dt.day)+"-"+str(hr)+'-'+str(minu)
 	return timestring
 
-def secdt():
-	dt = datetime.datetime.now()
-	y = dt.second
-	timestring = str(y)
-	return timestring
 
 
 
@@ -91,13 +122,37 @@ def info():
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
 		print(line)
-		bash('echo "' + sleepeyedjohn() + '" >> /home/'+username+'/pi-data/'+getDateStringfolder()+'/'+getDateStringfolder2()+'/'+getDateStringfile()+'.txt')
-		#bash('echo "' + line + '" >> /home/'+username+'/pi-data/'+getDateStringfolder()+'/'+getDateStringfolder2()+'/'+getDateStringfile()+'.txt') # uncomment this line for use in ultra sonic thingy
+		bash('echo "' + sleepeyedjohn() + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
+		#bash('echo "' + line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
 		#just testing rn so it is commented out dont want my storage to fill up that quick
 
 def folderpidata():
 	bash('cd /home/'+username+';mkdir pi-data')
-	
+
+
+
+def foldermin():
+	bash('mkdir /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+' -p')
+	bash('cd /home/'+username+'/pi-data/;echo "Folder Layout, YEAR>MONTH>DAY>24HOUR>MIN>Document" > folder-layout.txt')
+	while True:
+		if (int(secdt()) == 0):
+			bash('mkdir /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+' -p')
+		elif(int(secdt()) == 60):
+			print("Here it comes!")
+		else:
+			print('Seconds: '+ secdt())
+			print(getDateStringfolder2())
+			print("Made By Noah McGehee")
+			time.sleep(0.85)#this is so it doesnt eat the cpu alive for no good reason, Your welcome lul
+
+def pushtoserver():
+	while True:
+		#bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
+		time.sleep( 12 )
+
+
+
+	'''
 def foldermin():
 	bash('cd /home/'+username+'/pi-data/;mkdir '+getDateStringfolder()+';cd '+getDateStringfolder()+';mkdir '+getDateStringfolder2())
 	while True:
@@ -115,7 +170,7 @@ def pushtoserver():
 	while True:
 		bash('scp -r /home/'+username+'/pi-data/'+getDateStringfolder()+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
 		time.sleep( 30 )
-
+'''
 
 def main():
 	folderpidata()
