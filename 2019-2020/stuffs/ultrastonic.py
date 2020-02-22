@@ -109,7 +109,7 @@ def foldermin():
 			print('Seconds: '+ secdt())
 			print(getDateStringfolder2())
 			print("Made By Noah McGehee")
-			time.sleep(0.85)
+			time.sleep(0.85)#this is so it doesnt eat the cpu alive for no good reason, Your welcome lul
 
 def pushtoserver():
 	while True:
