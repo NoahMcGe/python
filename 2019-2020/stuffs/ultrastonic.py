@@ -1,6 +1,6 @@
-#Noah McGehee 
-#https://github.com/NoahMcGe
-#2/21/2020
+# Noah McGehee 
+# https://github.com/NoahMcGe
+# 2/21/2020
 
 
 #requires pySerial to be installed 

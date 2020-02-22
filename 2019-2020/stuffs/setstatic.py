@@ -1,3 +1,6 @@
+# Noah McGehee
+# This sets a staic ip based on the hostname
+
 import os
 import socket
 bash=os.system

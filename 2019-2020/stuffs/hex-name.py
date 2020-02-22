@@ -1,3 +1,7 @@
+# Noah McGehee
+# Changes the name from Steve-pi in minecraftpyed on an RPI
+# Needs to be in the same folder as the minecraft-pi when you run the script
+
 import re
 import os
 import sys
