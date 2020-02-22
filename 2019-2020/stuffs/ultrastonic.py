@@ -115,7 +115,7 @@ def foldermin():
 
 def pushtoserver():
 	while True:
-		#bash('scp -r /home/'+username+'/pi-data noah@10.183.5.254:/home/noah/html/pi/data/')
+		bash('scp -r /home/'+username+'/pi-data/'+getDateStringfolder()+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
 		time.sleep( 30 )
 
 
