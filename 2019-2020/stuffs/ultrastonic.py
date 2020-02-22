@@ -109,9 +109,7 @@ def foldermin():
 			print('Seconds: '+ secdt())
 			print(getDateStringfolder2())
 			print("Made By Noah McGehee")
-			print("Made By Noah McGehee")
-			print("Made By Noah McGehee")
-
+			time.sleep(0.85)
 
 def pushtoserver():
 	while True:
