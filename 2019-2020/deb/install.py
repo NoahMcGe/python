@@ -13,6 +13,6 @@ def install():
 	else:
 		install()
 def packages1():
-	os.system("apt install git neofetch net-tools php7.0 python3-tk apache ")
+	os.system("apt install git neofetch net-tools php7.0 python3-tk apache python-serial curl sudo vlc filezilla flameshot -y")
 
 install()
