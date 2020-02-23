@@ -50,29 +50,39 @@ def month():
 	global dt
 	dt = datetime.datetime.now()
 	m = dt.month
+	if (int(m)<10):
+		m=str("0")+str(m)
 	timestring = str(m)
 	return timestring
 def day():
 	global dt
 	dt = datetime.datetime.now()
 	m = dt.day
+	if (int(m)<10):
+		m=str("0")+str(m)
 	timestring = str(m)
 	return timestring
 def hour():
 	global dt
 	dt = datetime.datetime.now()
 	m = dt.hour
+	if (int(m)<10):
+		m=str("0")+str(m)
 	timestring = str(m)
 	return timestring
 def stmin():
 	global dt
 	dt = datetime.datetime.now()
 	m = dt.minute
+	if (int(m)<10):
+		m=str("0")+str(m)
 	timestring = str(m)
 	return timestring
 def secdt():
 	dt = datetime.datetime.now()
 	y = dt.second
+	if (int(y)<10):
+		y=str("0")+str(y)
 	timestring = str(y)
 	return timestring
 '''
@@ -122,8 +132,8 @@ def info():
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
 		print(line)
-		bash('echo "' + sleepeyedjohn() + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
-		#bash('echo "' + line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
+		bash('echo "Second: '+secdt()+' - Distance: '+sleepeyedjohn()+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
+		#bash('echo "Second: '+secdt()+' - Distance: '+line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
 		#just testing rn so it is commented out dont want my storage to fill up that quick
 
 def folderpidata():
