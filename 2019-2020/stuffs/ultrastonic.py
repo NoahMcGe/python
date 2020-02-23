@@ -1,16 +1,14 @@
 # Noah McGehee 
 # https://github.com/NoahMcGe
-# 2/22/2020
+# 2/23/2020
 
 
 #requires pySerial to be installed 
 #sudo apt install python-serial
-#python2 not python3
-#python3 doesnt not let you import serial kinda huge lame 
-## DO THIS FOR PYTHON3 $ sudo apt install python3-pip  $ sudo pip3 install pyserial
+## ------------------- DO THIS FOR PYTHON3 $ sudo apt install python3-pip  $ sudo pip3 install pyserial -------------------##
 #only for linux
 #Run on reboot | $ crontab -e        @reboot /path/to/file/ultrasonic.py
-
+#if arduino gets unplugged plug it back in and reboot
 
 
 import serial
