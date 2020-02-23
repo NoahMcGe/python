@@ -14,7 +14,7 @@ import serial
 # to use with ultra sonic thingy, only works in linux
 # Uncomment
 # Comment line 135
-# Uncomment line 136
+# Uncomment line 137
 # Uncomment line 133
 # Uncomment line 132
 # Uncomment line 38
@@ -118,21 +118,22 @@ def getDateStringfolder2():
 	return timestring
 
 
-
-
 def sleepeyedjohn():
-	time.sleep(30)
+	time.sleep(2)
 	Cred="Made By NoahMcGehee \nhttps://github.com/NoahMcGe"
 	return Cred
 
 def info():
 	global line
 	time.sleep(3)
+	i=1
 	while True:
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
-		print(line)
+		print('Count: '+str(i))
+		i=i+1
 		bash('echo "Second: '+secdt()+' - Distance: '+sleepeyedjohn()+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
+		bash('echo "Count: '+str(i)+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
 		#bash('echo "Second: '+secdt()+' - Distance: '+line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
 		#just testing rn so it is commented out dont want my storage to fill up that quick
 
