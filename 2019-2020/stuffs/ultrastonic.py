@@ -6,20 +6,20 @@
 #requires pySerial to be installed 
 #sudo apt install python-serial
 #python2 not python3
-#python3 doesnt not let you import serial kinda huge lame
-#import serial
+#python3 doesnt not let you import serial kinda huge lame ## DO THIS FOR PYTHON3 $ sudo apt install python3-pip  $ sudo pip3 install pyserial
+import serial
 
 
 # READ ME
-# to use with ultra sonic thingy
-# Uncomment and edit line 149
-# Comment line 126
-# Uncomment line 127
-# Uncomment line 123
-# Uncomment line 122
-# Uncomment line 36
-# Uncomment line 37
+# to use with ultra sonic thingy, only works in linux
+# Uncomment
+# Comment line 135
+# Uncomment line 136
+# Uncomment line 133
+# Uncomment line 132
 # Uncomment line 38
+# Uncomment line 39
+# Uncomment line 40
 
 
 import sys
@@ -114,7 +114,7 @@ def getDateStringfolder2():
 		hr = "0" + str(hr)
 	me = dt.minute
 
-	timestring = str(dt.day)+"-"+str(hr)+'-'+str(minu)
+	timestring = 'Day: '+str(dt.day)+" - Hour: "+str(hr)+' - Minute: '+str(minu)
 	return timestring
 
 
@@ -127,7 +127,7 @@ def sleepeyedjohn():
 
 def info():
 	global line
-	time.sleep(2)
+	time.sleep(3)
 	while True:
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
@@ -150,15 +150,19 @@ def foldermin():
 		elif(int(secdt()) == 60):
 			print("Here it comes!")
 		else:
-			print('Seconds: '+ secdt())
 			print(getDateStringfolder2())
+			print('Seconds: '+ secdt())
 			print("Made By Noah McGehee")
 			time.sleep(0.85)#this is so it doesnt eat the cpu alive for no good reason, Your welcome lul
 
-def pushtoserver():
+def pushtoserver():#Make sure you can ssh login without a password or this will be a huge pain
+	time.sleep(5)
+	bash('scp -r /home/'+username+'/pi-data/'+'/ draven@192.168.1.10:/home/draven/scp/pi/data/')
+	#bash('scp -r /home/'+username+'/pi-data/'+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
 	while True:
-		#bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
-		time.sleep( 12 )
+		bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ draven@192.168.1.10:/home/draven/scp/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
+		#bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ noah@10.183.5.254:/home/noah/html/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
+		time.sleep( 3 )
 
 
 
