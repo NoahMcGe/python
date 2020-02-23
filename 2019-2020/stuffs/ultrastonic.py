@@ -15,8 +15,8 @@ import serial
 # Uncomment
 # Comment line 135
 # Uncomment line 137
-# Uncomment line 133
 # Uncomment line 132
+# Uncomment line 131
 # Uncomment line 38
 # Uncomment line 39
 # Uncomment line 40
@@ -119,14 +119,14 @@ def getDateStringfolder2():
 
 
 def sleepeyedjohn():
-	time.sleep(2)
+	time.sleep(1)
 	Cred="Made By NoahMcGehee \nhttps://github.com/NoahMcGe"
 	return Cred
 
 def info():
 	global line
 	time.sleep(3)
-	i=1
+	i=0
 	while True:
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
