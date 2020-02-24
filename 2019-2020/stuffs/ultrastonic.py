@@ -12,7 +12,7 @@
 
 
 import serial
-#from picamera import PiCamera
+from picamera import PiCamera
 import sys
 import os
 import datetime
@@ -26,9 +26,9 @@ dt = datetime.datetime.now()
 username = getpass.getuser()
 myhost = os.uname()[1]
 bash=os.system
-#serial_port = '/dev/ttyACM0';
-#baud_rate = 9600; #In arduino, Serial.begin(baud_rate)
-#ser = serial.Serial(serial_port, baud_rate)
+serial_port = '/dev/ttyACM0';
+baud_rate = 9600; #In arduino, Serial.begin(baud_rate)
+ser = serial.Serial(serial_port, baud_rate)
 line=""
 
 
@@ -87,7 +87,7 @@ def getDateStringfolder2():
 
 
 
-'''
+
 def camerafilename():
 	#imagename="Image"+secdt()+".jpg"
 	return "Image"+secdt()+".jpg"
@@ -103,7 +103,7 @@ def camerapi():
 	#camera.start_preview()
 	camera.capture('/home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+camerafilename())
 	#camera.stop_preview()
-'''
+
 
 
 def sleepeyedjohn():
@@ -117,25 +117,25 @@ def info():
 	i=0
 	countt=0
 	while True:
-		#line = ser.readline();
-		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
+		line = ser.readline();
+		line = line.decode("utf-8") #ser.readline returns a binary, convert to string
 		#print('Count: '+str(countt))
 		i=i+1
 		countt=countt+1
 		if (int(secdt())==0):
-			bash('scp -r /home/'+username+'/pi-data/'+'/ draven@192.168.1.10:/home/draven/scp/pi/data/')
+			bash('scp -r /home/'+username+'/pi-data/'+'/ noah@192.168.1.10:noah@10.183.5.254:/home/noah/html/pi/data/')
 			bash('rm /home/'+username+'/pi-data/ -dR')
 			bash('mkdir /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+' -p')
-			bash('cd /home/'+username+'/pi-data/;echo "Folder Layout, YEAR>MONTH>DAY>24HOUR>MIN>Document |Ultra-Sonic.txt|  |Image(seconds).jpg|" > folder-layout.txt')
+			bash('cd /home/'+username+'/pi-data/;echo "Folder Layout, YEAR>MONTH>DAY>24HOUR>MIN>Document Ultra-Sonic.txt  Image(seconds).jpg|" > folder-layout.txt')
 		if (i==25):
 			bash('echo "\nCount: '+str(countt)+'\n" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
 			i=0
-			'''
+			
 		if (line < 200):
 			camerapi()
-			'''
-		bash('echo "Second: '+secdt()+' - Distance: '+sleepeyedjohn()+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
-		#bash('echo "Second: '+secdt()+' - Distance: '+line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
+			
+		#bash('echo "Second: '+secdt()+' - Distance: '+sleepeyedjohn()+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
+		bash('echo "Second: '+secdt()+' - Distance: '+line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
 		#just testing rn so it is commented out dont want my storage to fill up that quick
 
 def folderpidata():
@@ -161,11 +161,11 @@ def foldermin():
 
 def pushtoserver():#Make sure you can ssh login without a password or this will be a huge pain
 	time.sleep(5)
-	bash('scp -r /home/'+username+'/pi-data/'+'/ draven@192.168.1.10:/home/draven/scp/pi/data/')
-	#bash('scp -r /home/'+username+'/pi-data/'+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
+	#bash('scp -r /home/'+username+'/pi-data/'+'/ draven@192.168.1.10:/home/draven/scp/pi/data/')
+	bash('scp -r /home/'+username+'/pi-data/'+'/ noah@10.183.5.254:/home/noah/html/pi/data/')
 	while True:
-		bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ draven@192.168.1.10:/home/draven/scp/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
-		#bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ noah@10.183.5.254:/home/noah/html/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
+		#bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ draven@192.168.1.10:/home/draven/scp/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
+		bash('scp -r /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/ noah@10.183.5.254:/home/noah/html/pi/data/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/')
 		time.sleep( 3 )
 
 

@@ -1,18 +1,18 @@
 # Noah McGehee 
 # https://github.com/NoahMcGe
-# 2/22/2020
+# 2/23/2020
 
 
 #requires pySerial to be installed 
 #sudo apt install python-serial
-#python2 not python3
-#python3 doesnt not let you import serial kinda huge lame 
-## DO THIS FOR PYTHON3 $ sudo apt install python3-pip  $ sudo pip3 install pyserial
+## ------------------- DO THIS FOR PYTHON3 $ sudo apt install python3-pip  $ sudo pip3 install pyserial -------------------##
 #only for linux
+#Run on reboot | $ crontab -e        @reboot /path/to/file/ultrasonic.py
+#if arduino gets unplugged plug it back in and reboot
+
+
 import serial
-
-
-
+#from picamera import PiCamera
 import sys
 import os
 import datetime
@@ -30,6 +30,7 @@ bash=os.system
 #baud_rate = 9600; #In arduino, Serial.begin(baud_rate)
 #ser = serial.Serial(serial_port, baud_rate)
 line=""
+
 
 def year():
 	dt = datetime.datetime.now()
@@ -83,6 +84,28 @@ def getDateStringfolder2():
 	return timestring
 
 
+
+
+
+'''
+def camerafilename():
+	#imagename="Image"+secdt()+".jpg"
+	return "Image"+secdt()+".jpg"
+	
+
+
+def camerapi():
+	#Camera Setup
+	camera = PiCamera()
+	camera.resolution = (1920, 1080)
+	camera.rotation = 180
+	#Picture 1
+	#camera.start_preview()
+	camera.capture('/home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+camerafilename())
+	#camera.stop_preview()
+'''
+
+
 def sleepeyedjohn():
 	time.sleep(1)
 	Cred="Made By NoahMcGehee \nhttps://github.com/NoahMcGe"
@@ -96,17 +119,21 @@ def info():
 	while True:
 		#line = ser.readline();
 		#line = line.decode("utf-8") #ser.readline returns a binary, convert to string
-		print('Count: '+str(countt))
+		#print('Count: '+str(countt))
 		i=i+1
 		countt=countt+1
 		if (int(secdt())==0):
 			bash('scp -r /home/'+username+'/pi-data/'+'/ draven@192.168.1.10:/home/draven/scp/pi/data/')
 			bash('rm /home/'+username+'/pi-data/ -dR')
 			bash('mkdir /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+' -p')
-			bash('cd /home/'+username+'/pi-data/;echo "Folder Layout, YEAR>MONTH>DAY>24HOUR>MIN>Document" > folder-layout.txt')
+			bash('cd /home/'+username+'/pi-data/;echo "Folder Layout, YEAR>MONTH>DAY>24HOUR>MIN>Document |Ultra-Sonic.txt|  |Image(seconds).jpg|" > folder-layout.txt')
 		if (i==25):
 			bash('echo "\nCount: '+str(countt)+'\n" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
 			i=0
+			'''
+		if (line < 200):
+			camerapi()
+			'''
 		bash('echo "Second: '+secdt()+' - Distance: '+sleepeyedjohn()+'" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt')
 		#bash('echo "Second: '+secdt()+' - Distance: '+line + '" >> /home/'+username+'/pi-data/'+year()+'/'+month()+'/'+day()+'/'+hour()+'/'+stmin()+'/'+'Ultra-Sonic.txt') # uncomment this line for use in ultra sonic thingy
 		#just testing rn so it is commented out dont want my storage to fill up that quick
@@ -126,7 +153,9 @@ def foldermin():
 			print("Here it comes!")
 		else:
 			print(getDateStringfolder2())
+			print('-----------------------------------------------')
 			print('Seconds: '+ secdt())
+			print('-----------------------------------------------')
 			print("Made By Noah McGehee")
 			time.sleep(0.85)#this is so it doesnt eat the cpu alive for no good reason, Your welcome lul
 
