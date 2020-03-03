@@ -12,7 +12,7 @@
 
 
 import serial
-from picamera import PiCamera
+#from picamera import PiCamera
 import sys
 import os
 import datetime
