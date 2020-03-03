@@ -34,6 +34,26 @@ def part3():
 		print("Have a might fine day "+name+"!\n")
 		print("LOOOOL, YOU FELL FOR IT CX (INCERT LAUGHING EMOJIIIII)\n~~~~ : "+age+" : ~~~~\nIt may have taken 10 years but now we finally know the truth!")
 		print("\nAlso, I really like it when the math homework is only even numbers :)")
+		print("\n LINUX > WINDOWS > MACOS oooof")
+		b = input("\nWould you like to hear a song?(Y/N) : ")
+		if (b=="Y"or b=="y"):
+			print("\nDavy Crockett")
+			print('''
+	Born on a mountain top in Tennessee
+	Greenest state in the land of the free
+	Raised in the woods so he knew ev'ry tree
+	Kilt him a be 'are when he was only three
+	Davy, Davy Crockett, king of the wild frontier
+	In eighteen thirteen the Creeks uprose
+	Addin' redskin arrows to the country's woes
+	Now, Injun fightin' is somethin' he knows
+	So he shoulders his rifle an' off he goes
+	Davy, Davy Crockett, the man who don't know fear
+			''')
+		elif (b=="N"or b=="n"):
+			print("\nWell okay lol, bye bye!")
+		else:
+			print("Well idk what that is but alraightyyt, cya around ig.")
 	else:
 		print("\nI've never known another "+name+"! Very very cool")
 		print("\nMr. E talks about you alot, you very well may possibly be his favorite student.")
