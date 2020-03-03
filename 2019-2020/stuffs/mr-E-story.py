@@ -31,8 +31,9 @@ def part3():
 		else:
 			print("what a stange age you have... "+age)
 	elif(name=="Mr.E"):
-		print("Have a might fine day "+name+"!")
+		print("Have a might fine day "+name+"!\n")
 		print("LOOOOL, YOU FELL FOR IT CX (INCERT LAUGHING EMOJIIIII)\n~~~~ : "+age+" : ~~~~\nIt may have taken 10 years but now we finally know the truth!")
+		print("\nAlso, I really like it when the math homework is only even numbers :)")
 	else:
 		print("\nI've never known another "+name+"! Very very cool")
 		print("\nMr. E talks about you alot, you very well may possibly be his favorite student.")
