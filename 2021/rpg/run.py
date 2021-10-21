@@ -95,6 +95,7 @@ def playervsmonster2death():
 				escape()
 			if (monster1.attack < player1.defence):
 				print("\n The sight of you put ",monster1.name,"in to shock and it has died from fear")
+				monsterkill()
 			p1tempdamage= player1.attack-monster1.defence/1.5
 			m1tempdamage= monster1.attack-player1.defence
 			player1.hp = player1.hp - m1tempdamage
