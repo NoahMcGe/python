@@ -136,6 +136,7 @@ def escape():
 			menu()
 	else:
 		print(player1.name,"the ghost, flew away..")
+		menu()
 
 def monsterkill():
 	print(player1.name," did slay the beast!")
@@ -165,7 +166,7 @@ def skillpointmenu():
 	if (player1.skillpoints==0):
 		print("you must leave this menu if you have no skillpoints")
 		menu()
-	pick = input("Chose: ")
+	pick = input("Choose: ")
 	if (pick=="1"):
 		player1.hpmax=player1.hpmax+2
 		player1.hp=player1.hp+2
@@ -195,7 +196,7 @@ def skillpointmenu():
 
 def monsterfound():
 	print("\n-- OPTIONS --\n1. Flee\n2. Fight\n3. Fight to the death! \n4. View Monster Status\n5. View ",player1.name,"'s Status")
-	pick = input("Chose: ")
+	pick = input("Choose: ")
 	if (pick == "1"):
 		escape()
 	elif (pick =="2"):
@@ -214,7 +215,7 @@ def monsterfound():
 
 def menu():
 	print("\n-- OPTIONS --\n1. See Satus\n2. Go into the dungeon\n3. Skill Menu\n4. Items Menu\n5. Reset")
-	pick = input("Chose: ")
+	pick = input("Choose: ")
 	if (pick == "1"):
 		player1.player_status()
 		menu()
@@ -223,7 +224,7 @@ def menu():
 	elif(pick=="3"):
 		skillpointmenu()
 	elif(pick=="4"):
-		print("Coming Soon")
+		print("\nComing Soon")
 		menu()
 	elif(pick=="5"):
 		main()
