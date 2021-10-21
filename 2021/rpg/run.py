@@ -25,7 +25,7 @@ def define_player():
 	player1.attack = 1+player1.level+player1.level/2
 	player1.defence = player1.level+player1.level/2 -0.5
 	player1.luck = random.randint(1,100)
-	player1.skillpoints = 0
+	player1.skillpoints = 1
 	
 	player1.player_status()
 	
@@ -159,6 +159,39 @@ def levelup():
 		player1.skillpoints = player1.skillpoints+1
 	print("\nLEVEL UP\n")
 		
+def skillpointmenu():
+	print("\n---SKILL POINT MENU---\n",player1.name,"has:",player1.skillpoints,"Skillpoints!")
+	print("\n1. Add HP (+2)\n2. Add Attack (+1)\n3. Add Defence (+1)\n4. Add Luck (+3)\n5. Back")
+	if (player1.skillpoints==0):
+		print("you must leave this menu if you have no skillpoints")
+		menu()
+	pick = input("Chose: ")
+	if (pick=="1"):
+		player1.hpmax=player1.hpmax+2
+		player1.hp=player1.hp+2
+		player1.skillpoints = player1.skillpoints-1
+		print("2 hp has been added to your stats!")
+		menu()
+	elif (pick=="2"):
+		player1.attack=player1.attack+1
+		player1.skillpoints = player1.skillpoints-1
+		print("1 attack has been added to your stats!")
+		menu()
+	elif (pick=="3"):
+		player1.defence=player1.defence+1
+		player1.skillpoints = player1.skillpoints-1
+		print("1 defence has been added to your stats!")
+		menu()
+	elif (pick=="4"):
+		player1.luck=player1.luck+3
+		player1.skillpoints = player1.skillpoints-1
+		print("3 luck has been added to your stats!")
+		menu()
+	elif (pick=="5"):
+		menu
+	else:
+		print("that option is not available")
+		skillpointmenu()
 
 def monsterfound():
 	print("\n-- OPTIONS --\n1. Flee\n2. Fight\n3. Fight to the death! \n4. View Monster Status\n5. View ",player1.name,"'s Status")
@@ -180,13 +213,15 @@ def monsterfound():
 		monsterfound()
 
 def menu():
-	print("\n-- OPTIONS --\n1. See Satus\n2. Go into the dungeon")
+	print("\n-- OPTIONS --\n1. See Satus\n2. Go into the dungeon\n3. Skill Menu")
 	pick = input("Chose: ")
 	if (pick == "1"):
 		player1.player_status()
 		menu()
 	elif (pick == "2"):
 		gointodun()
+	elif(pick=="3"):
+		skillpointmenu()
 	else:
 		print("Option not available")
 		menu()
