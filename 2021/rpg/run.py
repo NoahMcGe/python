@@ -139,7 +139,7 @@ def escape():
 		menu()
 
 def monsterkill():
-	luckydrop = random.randint(0,1000)+player.luck*3
+	luckydrop = random.randint(0,1000)+player1.luck*3
 	print(player1.name," did slay the beast!")
 	if (luckydrop > 980):
 		player1.skillpoints = player1.skillpoints+1
