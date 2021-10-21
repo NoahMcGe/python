@@ -213,7 +213,7 @@ def monsterfound():
 		monsterfound()
 
 def menu():
-	print("\n-- OPTIONS --\n1. See Satus\n2. Go into the dungeon\n3. Skill Menu")
+	print("\n-- OPTIONS --\n1. See Satus\n2. Go into the dungeon\n3. Skill Menu\n4. Items Menu\n5. Reset")
 	pick = input("Chose: ")
 	if (pick == "1"):
 		player1.player_status()
@@ -222,6 +222,11 @@ def menu():
 		gointodun()
 	elif(pick=="3"):
 		skillpointmenu()
+	elif(pick=="4"):
+		print("Coming Soon")
+		menu()
+	elif(pick=="5"):
+		main()
 	else:
 		print("Option not available")
 		menu()
