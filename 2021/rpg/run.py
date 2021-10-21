@@ -140,7 +140,7 @@ def escape():
 def monsterkill():
 	print(player1.name," did slay the beast!")
 	if (monster1.level > player1.level):
-		player1.exp=monster1.level-player1.level+5
+		player1.exp=player1.exp+monster1.level-player1.level+5
 	else:
 		player1.exp=player1.exp+4+monster1.level
 	if (player1.exp > player1.expmax or player1.exp == player1.expmax):
