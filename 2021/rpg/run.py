@@ -1,4 +1,4 @@
-#Noah McGe 10/21/2021
+#Noah McGe 10/21/2021 Python 3.8.10
 import random
 import time
 
