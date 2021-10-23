@@ -1,4 +1,4 @@
-#Noah McGe 10/21/2021 Python 3.8.10
+#Noah McGe 10/21/2021
 import random
 import time
 
@@ -250,8 +250,9 @@ def skillpointmenu():
 		menu()
 	elif (pick=="5"):
 		player1.hp=player1.hpmax
-		menu()
+		player1.skillpoints = player1.skillpoints-1
 		print("You have been refreshed!")
+		menu()
 	elif (pick=="6"):
 		menu()
 	else:
