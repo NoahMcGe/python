@@ -22,6 +22,7 @@ class Quest:
 		print(self.name,"Kill",self.killamountneeded,self.montype+"s for a reward of:",self.reward,"exp")
 		print("   You have killed:",self.killamount,"/",self.killamountneeded)
 
+
 def guildmenu():
 	print("\n---QUESTS---   Quests do not save with your player stats\n")
 	try:
